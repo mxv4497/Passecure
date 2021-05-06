@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/toggleTheme"
+        android:icon="@drawable/ic_baseline_brightness_medium_24"
+        app:showAsAction="ifRoom"
+        android:title="THEME TOGGLE"/>
+
+    <item
+        android:id="@+id/newItem"
+        android:icon="@drawable/ic_baseline_add_24"
+        app:showAsAction="ifRoom"
+        android:title="NEW ITEM" />
+
+</menu>
