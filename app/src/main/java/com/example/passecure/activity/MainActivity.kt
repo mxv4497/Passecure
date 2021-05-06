@@ -1,4 +1,4 @@
-package com.example.passecure
+package com.example.passecure.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavHost
+import com.example.passecure.R
 import com.example.passecure.util.ThemeManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 

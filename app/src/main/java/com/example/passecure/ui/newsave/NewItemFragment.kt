@@ -38,7 +38,8 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
                 passwordET.setText(it.password)
                 descriptionET.setText(it.description)
 
-                generateBtn.text = "Re-generate unique password"
+                saveBtn.text = getString(R.string.update)
+                generateBtn.text = getString(R.string.generateBtn_rename_on_existing_item)
                 deleteBtn.visibility = View.VISIBLE
 
                 deleteBtn.setOnClickListener {_ ->
@@ -85,6 +86,7 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
             repository.insert(passecureItem)
         }
         Toast.makeText(requireContext(), "Item ${passecureItem.name} created.", Toast.LENGTH_SHORT).show()
+        navigateToList()
     }
 
     private fun updateDatabase(passecureItem: PassecureItem){
@@ -92,6 +94,7 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
             repository.update(passecureItem)
         }
         Toast.makeText(requireContext(), "Item ${passecureItem.name} updated.", Toast.LENGTH_SHORT).show()
+        navigateToList()
     }
 
     private fun checkForErrors(){
@@ -126,11 +129,18 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
                     if (args.passecureItem == null){
                         saveToDatabase(passecureItem)
                     } else {
-                        updateDatabase(passecureItem)
+                        MaterialAlertDialogBuilder(requireContext())
+                                .setTitle("Update ${nameET.text}?")
+                                .setMessage("Are you sure you want to update?")
+                                .setNeutralButton(resources.getString(R.string.cancel)) { _, _ ->}
+                                .setPositiveButton(resources.getString(R.string.update)) { _, _ ->
+                                    updateDatabase(passecureItem)
+                                }
+                                .show()
+
                     }
 
                     hideKeyboard()
-                    navigateToList()
                 }
             }
         }

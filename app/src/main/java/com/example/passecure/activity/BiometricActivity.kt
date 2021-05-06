@@ -1,4 +1,4 @@
-package com.example.passecure
+package com.example.passecure.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.example.passecure.R
 import java.util.concurrent.Executor
 
 class BiometricActivity : AppCompatActivity() {

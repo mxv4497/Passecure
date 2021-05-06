@@ -15,12 +15,12 @@
         android:configChanges="orientation|screenSize">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:configChanges="orientation|screenSize">
             <nav-graph android:value="@navigation/nav_graph" />
         </activity>
 
-        <activity android:name=".BiometricActivity"
+        <activity android:name=".activity.BiometricActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
