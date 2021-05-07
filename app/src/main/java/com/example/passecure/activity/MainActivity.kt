@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
         navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHost).navController
         themeManager = ThemeManager(this)
 
-        if (themeManager.shouldShowSystemMode){
-            singleItems = arrayOf("Battery", "Light", "Dark", "System")
+        singleItems = if (themeManager.shouldShowSystemMode){
+            arrayOf("Battery", "Light", "Dark", "System")
         } else {
-            singleItems = arrayOf("Battery", "Light", "Dark")
+            arrayOf("Battery", "Light", "Dark")
         }
     }
 
