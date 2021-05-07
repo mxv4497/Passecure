@@ -57,7 +57,7 @@ class NewItemFragment : Fragment(R.layout.fragment_new_item) {
 
         binding.cancelBtn.setOnClickListener {
             Toast.makeText(requireContext(), "Action canceled.", Toast.LENGTH_SHORT).show()
-            findNavController().navigateUp()
+            navigateToList()
         }
         
         binding.generateBtn.setOnClickListener {

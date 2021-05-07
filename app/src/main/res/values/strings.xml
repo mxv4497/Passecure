@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Passecure</string>
-    4
     <string name="string_password">Password</string>
     <string name="string_description">Description</string>
     <string name="string_username">Username</string>
@@ -20,6 +19,5 @@
     <string name="theme">Theme</string>
     <string name="user_auth_failed">Authentication failed, try in 60 seconds.</string>
     <string name="user_auth_failed_meme">These Are Not the Droids You Are Looking For</string>
-    <string name="update">Update</string>
     <string name="generateBtn_rename_on_existing_item">Re-generate unique password</string>
 </resources>
