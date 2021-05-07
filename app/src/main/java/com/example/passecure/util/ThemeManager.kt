@@ -9,7 +9,7 @@ class ThemeManager (context: Context) {
     var number: Int = 0
 
     enum class Theme {
-        LIGHT, DARK, SYSTEM, BATTERY
+        BATTERY, LIGHT, DARK, SYSTEM
     }
 
     private val storageKey = "theme"
@@ -40,20 +40,20 @@ class ThemeManager (context: Context) {
         localStorage.save(storageKey, theme)
 
         when(theme) {
+            Theme.BATTERY -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
+                number = 0
+            }
             Theme.LIGHT -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                number = 0
+                number = 1
             }
             Theme.DARK -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                number = 1
+                number = 2
             }
             Theme.SYSTEM -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                number = 2
-            }
-            Theme.BATTERY -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
                 number = 3
             }
         }

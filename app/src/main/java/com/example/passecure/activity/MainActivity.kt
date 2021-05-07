@@ -16,8 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var themeManager: ThemeManager
 
-    // TODO: remove (n/a) after I get a new phone with newer android version that has system theme mod
-    private val singleItems = arrayOf("Light", "Dark", "System (Intentionally here)", "Battery")
+    private var singleItems: Array<String> = arrayOf()
 
     private var pressedTime: Long = 0
 
@@ -26,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHost).navController
         themeManager = ThemeManager(this)
+
+        if (themeManager.shouldShowSystemMode){
+            singleItems = arrayOf("Battery", "Light", "Dark", "System")
+        } else {
+            singleItems = arrayOf("Battery", "Light", "Dark")
+        }
     }
 
     override fun onRestart() {
@@ -76,10 +81,10 @@ class MainActivity : AppCompatActivity() {
             }
             .setSingleChoiceItems(singleItems, themeManager.getThemePosition()) { dialog, which ->
                 val selectedTheme = when(which){
-                    0 -> ThemeManager.Theme.LIGHT
-                    1 -> ThemeManager.Theme.DARK
-                    2 -> ThemeManager.Theme.SYSTEM
-                    3 -> ThemeManager.Theme.BATTERY
+                    0 -> ThemeManager.Theme.BATTERY
+                    1 -> ThemeManager.Theme.LIGHT
+                    2 -> ThemeManager.Theme.DARK
+                    3 -> ThemeManager.Theme.SYSTEM
                     else -> null
                 }
                 themeManager.applyTheme(selectedTheme)
